@@ -64,7 +64,7 @@
       <h2 class="text-xl font-bold text-borda mb-4 dark:text-light_borda">Ferramentas</h2>
       <ul class="space-y-3">
         <li>
-          <a href="calculadora.html" class="flex items-center space-x-2 text-borda hover:text-roxo1 dark:text-light_borda dark:hover:text-light_roxo1">
+          <a href="Calc Porcentagem.html" class="flex items-center space-x-2 text-borda hover:text-roxo1 dark:text-light_borda dark:hover:text-light_roxo1">
             <i class="fa-solid fa-calculator"></i> <span>Calculadora de Porcentagem</span>
           </a>
         </li>
@@ -74,7 +74,7 @@
           </a>
         </li>
         <li>
-          <a href="validador-cpf.html" class="flex items-center space-x-2 text-roxo1 font-semibold dark:text-light_roxo1">
+          <a href="Validar CPF.html" class="flex items-center space-x-2 text-roxo1 font-semibold dark:text-light_roxo1">
             <i class="fa-solid fa-barcode"></i> <span>Validador de CPF</span>
           </a>
         </li>
@@ -115,33 +115,6 @@
       </div>
     </main>
   </div>
-
-  <script>
-    // darkmode funcao
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    
-    if (localStorage.getItem('color-theme') === 'dark' || 
-        (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-      themeIcon.classList.replace('fa-moon', 'fa-sun');
-    } else {
-      document.documentElement.classList.remove('dark');
-      themeIcon.classList.replace('fa-sun', 'fa-moon');
-    }
-    
-    themeToggle.addEventListener('click', function() {
-      themeIcon.classList.toggle('fa-moon');
-      themeIcon.classList.toggle('fa-sun');
-      
-      if (document.documentElement.classList.contains('dark')) {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('color-theme', 'light');
-      } else {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('color-theme', 'dark');
-      }
-    });
-  </script>
+  <script src="./darkMode.js"></script>
 </body>
 </html>
