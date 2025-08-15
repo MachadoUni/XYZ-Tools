@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Validador de CPF | XY Tools</title>
-  <script src="validaCPF.js"></script>
+  <script src="geraCPF.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   
@@ -111,6 +111,7 @@
           class="w-full px-4 py-2 pr-10 bg-fundo border border-borda rounded focus:outline-none focus:ring-2 focus:ring-roxo1 dark:bg-light_fundo dark:border-light_borda"
         >
         <button 
+          onclick="copiarOutput()"
           id="copiar-interno"
           class="absolute right-4 top-1/2 transform -translate-y-1/2 p-1 text-roxo2 rounded-md hover:text-roxo1 dark:text-light_borda dark:hover:text-light_roxo1"
           title="Copiar CPF"
@@ -121,6 +122,7 @@
     </div>
 
     <button 
+    onclick="gerarCpf()"
       id="gerar-btn"
       class="w-full bg-roxo1 hover:bg-borda text-roxo2 py-2 px-4 rounded transition duration-200 dark:bg-light_roxo1 dark:hover:bg-light_borda dark:text-light_roxo2"
     >
