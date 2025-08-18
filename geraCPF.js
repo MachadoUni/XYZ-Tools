@@ -1,14 +1,38 @@
 function copiarOutput() {
   var output = document.getElementById("cpf-output").value;
+  const copyButton = document.getElementById("copiar-interno");
 
   if (output !== '') {
     try {
       navigator.clipboard.writeText(output);
+      showFloatingTooltip(copyButton, 'Copiado!');
     } catch (err) {
       console.error('Falha ao copiar texto: ', err);
+      showFloatingTooltip(copyButton, 'Erro ao copiar!');
     }
+  } else {
+    showFloatingTooltip(copyButton, 'Nada para copiar!');
   }
+}
 
+function showFloatingTooltip(button, message) {
+  const oldTooltip = document.getElementById('floating-tooltip');
+  if (oldTooltip) oldTooltip.remove();
+  
+  const tooltip = document.createElement('div');
+  tooltip.id = 'floating-tooltip';
+  tooltip.textContent = message;
+  tooltip.className = 'absolute bg-roxo1 text-white px-3 py-1 rounded-md text-sm z-10';
+  
+  const rect = button.getBoundingClientRect();
+  tooltip.style.top = `${rect.top - 35}px`;
+  tooltip.style.left = `${rect.left + rect.width/2 - 30}px`;
+  
+  document.body.appendChild(tooltip);
+  
+  setTimeout(() => {
+    tooltip.remove();
+  }, 2000);
 }
 
 function gerarCpf() {
