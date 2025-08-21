@@ -39,35 +39,27 @@
 
 <body class="bg-fundo text-txt1 flex flex-col min-h-screen dark:bg-light_fundo dark:text-light_txt1">
 
-  <!-- navbar -->
-  <nav class="bg-roxo1 px-6 py-3 flex items-center justify-between shadow-lg dark:bg-light_roxo1">
-    <div class="text-2xl font-bold text-borda dark:text-light_borda">
-      <a href="#">XY Tools</a>
+<!-- navbar -->
+<nav class="bg-roxo1 px-6 py-3 flex items-center justify-between shadow-lg dark:bg-light_roxo1">
+  
+  <!-- svg logo -->
+  <a href="index.html" class="flex items-center">
+    <img src="logos/Logo extenso.svg" alt="Logo XY Tools" class="w-20 h-20 mr-10">
+
+  </a>
+
+  <!-- botao darkmode -->
+  <label class="cursor-pointer">
+    <input type="checkbox" id="theme-toggle" class="sr-only peer">
+    <div class="w-10 h-10 flex items-center justify-center rounded-full border border-roxo2 hover:bg-borda dark:hover:bg-roxo2 transition-colors duration-200">
+      <i class="fa-solid fa-circle-half-stroke text-lg bg-clip-text text-transparent 
+        bg-gradient-to-r from-roxo2 to-yellow-300 
+        dark:bg-gradient-to-r dark:from-yellow-300 dark:to-borda
+        transition-all duration-300 peer-checked:rotate-180"></i>
     </div>
+  </label>
 
-    <div class="flex items-center space-x-4">
-      <div
-        class="flex items-center bg-fundo border border-roxo1 rounded-full overflow-hidden dark:bg-light_fundo dark:border-light_roxo1">
-        <input type="text" placeholder="buscar..."
-          class="px-3 py-2 w-40 md:w-64 text-txt1 bg-transparent focus:outline-none placeholder-roxo2 dark:text-light_borda dark:placeholder-light_txt1">
-        <button
-          class="bg-borda text-roxo2 hover:bg-light_borda px-4 py-2 dark:bg-light_borda dark:hover:bg-light_borda">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
-
-      <!-- darkmode botão -->
-      <label class="cursor-pointer">
-        <input type="checkbox" id="theme-toggle" class="sr-only peer">
-        <div
-          class="w-10 h-10 flex items-center justify-center rounded-full border border-roxo2 hover:bg-borda dark:hover:bg-roxo2 transition-colors duration-200">
-          <i class="fa-solid fa-circle-half-stroke text-lg bg-clip-text text-transparent 
-              bg-gradient-to-r from-roxo2 to-yellow-300 
-              dark:bg-gradient-to-r dark:from-yellow-300 dark:to-borda
-              transition-all duration-300 peer-checked:rotate-180"></i>
-        </div>
-      </label>
-  </nav>
+</nav>
 
   <!-- sidebar -->
   <div class="flex flex-1">
@@ -75,11 +67,12 @@
       <h2 class="text-xl font-bold text-roxo2 mb-4 dark:text-txt1">Ferramentas</h2>
       <ul class="space-y-3">
         <li><a href="Calc Porcentagem.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-calculator"></i><span>Calculadora de Porcentagem</span></a></li>
-        <li><a href="#" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-palette"></i><span>Seletor de Cores</span></a></li>
+        <li><a href="#" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-calculator"></i><span>Calculadora de Horas</span></a></li>
         <li><a href="Validar CPF.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-barcode"></i><span>Validador de CPF</span></a></li>
+        <li><a href="Gerador CPF.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-barcode"></i><span>Gerador de CPF</span></a></li> 
         <li><a href="Conversor Binario.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-code"></i><span>Conversor Binário</span></a></li>
-        <li><a href="Gerador CPF.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-barcode"></i><span>Gerador de CPF</span></a></li>
         <li><a href="Conversor Morse.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-code"></i><span>Conversor Morse</span></a></li>
+        <li><a href="#" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-palette"></i><span>Seletor de Cores</span></a></li>      
       </ul>
     </aside>
 
