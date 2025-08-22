@@ -4,14 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculadora de Horas | XY Tools</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="calculaHoras.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   
-  <script>
+   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
+          fontFamily: {
+            'sans': ['Lexend', 'sans-serif'],
+          },
           colors: {
             // darkmode - padrão
             fundo: '#121018',
@@ -20,7 +29,7 @@
             borda: '#2d1b4f',
             txt1: '#e4e4e4',
             txt2: '#a6a6a6',
-            
+
             // lightmode
             light_fundo: '#f5f5f7',
             light_roxo1: '#7b00ff',
@@ -35,7 +44,10 @@
   </script>
   
   <style>
-    /* Estilo para inputs */
+     * {
+      font-family: 'Lexend', sans-serif;
+    }
+
     input::placeholder {
       color: #a6a6a6;
     }
@@ -43,7 +55,7 @@
       color: #666666;
     }
     
-    /* Estilo para a barra de rolagem do histórico */
+    /* rolagem do historico */
     #historico::-webkit-scrollbar {
       width: 6px;
     }
@@ -59,7 +71,7 @@
       background: #efebf7;
     }
     
-    /* Animações */
+    /* animações */
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
@@ -173,5 +185,6 @@
       </div>
     </main>
   </div>
+ <script src="./darkMode.js"></script>
 </body>
 </html>
