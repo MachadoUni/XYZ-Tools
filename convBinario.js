@@ -53,5 +53,20 @@ function traduzirTextoParaBinario() {
     resultadoBinario += binarioComOitoBits + ' ';
   }
 
-    document.getElementById("binary-output").value = resultadoBinario;
+    document.getElementById('text-input').value = '';
+    document.getElementById("binary-output").value = resultadoBinario.slice(0, -1);
 }
+
+function traduzirBinarioParaTexto() {
+  var mensagem = document.getElementById("binary-output").value;
+
+  const binaryChunks = mensagem.split(' ');
+
+  const text = binaryChunks
+    .map(chunk => parseInt(chunk, 2))
+    .map(decimal => String.fromCharCode(decimal))
+    .join('');
+
+    document.getElementById('binary-output').value = '';
+    document.getElementById("text-input").value = text;
+} 
