@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="calculaIMC.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
   <script>
@@ -51,91 +50,112 @@
 
 <body class="bg-fundo text-txt1 flex flex-col min-h-screen dark:bg-light_fundo dark:text-light_txt1">
 
-<!-- navbar -->
-<nav class="bg-roxo1 px-6 py-4 flex items-center justify-between shadow-lg dark:bg-light_roxo1">
-  <a href="index.html" class="flex items-center">
-    <img src="logos/Logo curto.svg" alt="Logo XY Tools" class="h-[4rem] mr-10">
-  </a>
+  <!-- navbar -->
+  <nav class="bg-roxo1 px-6 py-4 flex items-center justify-between shadow-lg dark:bg-light_roxo1">
+    <a href="index.html" class="flex items-center">
+      <img src="logos/Logo curto.svg" alt="Logo XY Tools" class="h-[4rem] mr-10">
+    </a>
 
-  <label class="cursor-pointer">
-    <input type="checkbox" id="theme-toggle" class="sr-only peer">
-    <div class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-borda dark:hover:bg-roxo2 transition-colors duration-200">
-      <i class="fa-solid fa-circle-half-stroke text-lg bg-clip-text text-transparent 
+    <label class="cursor-pointer">
+      <input type="checkbox" id="theme-toggle" class="sr-only peer">
+      <div
+        class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-borda dark:hover:bg-roxo2 transition-colors duration-200">
+        <i class="fa-solid fa-circle-half-stroke text-lg bg-clip-text text-transparent 
         bg-roxo2 min-w-[19px] dark:bg-borda transition-all duration-300 peer-checked/rotate-180"></i>
-    </div>
-  </label>
-</nav>
+      </div>
+    </label>
+  </nav>
 
   <!-- sidebar -->
   <div class="flex flex-1">
-     <aside class="bg-borda min-w-fit p-6 space-y-4 dark:bg-light_borda">
+    <aside class="bg-borda min-w-fit p-6 space-y-4 dark:bg-light_borda">
       <h2 class="text-xl font-bold text-roxo2 mb-4 dark:text-txt1">Ferramentas</h2>
       <ul class="space-y-3">
-        <li><a href="Calc Horas.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-calculator"></i><span>Calculadora de Horas</span></a></li>
-        <li><a href="Calc IMC.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-calculator"></i><span>Calculadora de IMC</span></a></li>
-        <li><a href="Calc Porcentagem.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-calculator"></i><span>Calculadora de Porcentagem</span></a></li>
-        <li><a href="Conversor Binario.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-code"></i><span>Tradutor Binário</span></a></li>
-        <li><a href="Conversor Morse.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-code"></i><span>Tradutor Morse</span></a></li>
-        <li><a href="Gerador Senha.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-key"></i><span>Gerador de Senhas</span></a></li>          
-        <li><a href="Gerador CPF.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-barcode"></i><span>Gerador de CPF</span></a></li> 
-        <li><a href="Validar CPF.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-barcode"></i><span>Validador de CPF</span></a></li>
-        <li><a href="Seletor de Cores.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-palette"></i><span>Seletor de Cores</span></a></li>           
-        <li><a href="Sorteador Numero.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1"><i class="fa-solid fa-shuffle"></i><span>Sorteador de Números</span></a></li>
+        <li><a href="Calc Horas.html"
+            class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i
+              class="fa-solid fa-calculator"></i><span>Calculadora de Horas</span></a></li>
+        <li><a href="Calc IMC.html"
+            class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i
+              class="fa-solid fa-calculator"></i><span>Calculadora de IMC</span></a></li>
+        <li><a href="Calc Porcentagem.html"
+            class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i
+              class="fa-solid fa-calculator"></i><span>Calculadora de Porcentagem</span></a></li>
+        <li><a href="Conversor Binario.html"
+            class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i
+              class="fa-solid fa-code"></i><span>Tradutor Binário</span></a></li>
+        <li><a href="Conversor Morse.html"
+            class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i
+              class="fa-solid fa-code"></i><span>Tradutor Morse</span></a></li>
+        <li><a href="Gerador Senha.html"
+            class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i
+              class="fa-solid fa-key"></i><span>Gerador de Senhas</span></a></li>
+        <li><a href="Gerador CPF.html"
+            class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i
+              class="fa-solid fa-barcode"></i><span>Gerador de CPF</span></a></li>
+        <li><a href="Validar CPF.html"
+            class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i
+              class="fa-solid fa-barcode"></i><span>Validador de CPF</span></a></li>
+        <li><a href="Seletor de Cores.html"
+            class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i
+              class="fa-solid fa-palette"></i><span>Seletor de Cores</span></a></li>
+        <li><a href="Sorteador Numero.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1"><i
+              class="fa-solid fa-shuffle"></i><span>Sorteador de Números</span></a></li>
       </ul>
     </aside>
 
-  <!-- conteúdo principal -->
-  <main class="flex-1 p-6">
-    <h1 class="text-2xl font-bold text-roxo2 mb-6 dark:text-light_borda">Calculadora de IMC</h1>
+    <!-- conteúdo principal -->
+    <main class="flex-1 p-6">
+      <h1 class="text-2xl font-bold text-roxo2 mb-6 dark:text-light_borda">Calculadora de IMC</h1>
 
-    <div class="max-w-md mx-auto bg-roxo2 p-6 rounded-lg shadow-md dark:bg-light_roxo2">
-      <div class="text-center mb-6">
-        <h2 class="text-xl font-semibold text-borda dark:text-light_borda">Calcule seu IMC</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div>
-          <label for="peso" class="block text-borda mb-1 dark:text-light_borda">Peso (kg)</label>
-          <input id="peso" placeholder="Ex: 70"
-            class="w-full px-4 py-2 bg-fundo border border-borda rounded focus:outline-none focus:ring-2 focus:ring-roxo1 dark:bg-light_fundo dark:border-light_borda">
+      <div class="max-w-md mx-auto bg-roxo2 p-6 rounded-lg shadow-md dark:bg-light_roxo2">
+        <div class="text-center mb-6">
+          <h2 class="text-xl font-semibold text-borda dark:text-light_borda">Calcule seu IMC</h2>
         </div>
 
-        <div>
-          <label for="altura" class="block text-borda mb-1 dark:text-light_borda">Altura (m)</label>
-          <input id="altura" placeholder="Ex: 1.75"
-            class="w-full px-4 py-2 bg-fundo border border-borda rounded focus:outline-none focus:ring-2 focus:ring-roxo1 dark:bg-light_fundo dark:border-light_borda">
+        <div class="space-y-4">
+          <div>
+            <label for="peso" class="block text-borda mb-1 dark:text-light_borda">Peso (kg)</label>
+            <input id="peso" placeholder="Ex: 70"
+              class="w-full px-4 py-2 bg-fundo border border-borda rounded focus:outline-none focus:ring-2 focus:ring-roxo1 dark:bg-light_fundo dark:border-light_borda">
+          </div>
+
+          <div>
+            <label for="altura" class="block text-borda mb-1 dark:text-light_borda">Altura (m)</label>
+            <input id="altura" placeholder="Ex: 1.75"
+              class="w-full px-4 py-2 bg-fundo border border-borda rounded focus:outline-none focus:ring-2 focus:ring-roxo1 dark:bg-light_fundo dark:border-light_borda">
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <button onclick="calculaIMC()"
+              class="flex-1 bg-roxo1 hover:bg-borda text-roxo2 py-2 px-4 rounded transition duration-200 dark:bg-light_roxo1 dark:hover:bg-light_borda dark:text-light_roxo2">
+              Calcular
+            </button>
+
+            <button onclick="limparInput()"
+              class="flex-1 bg-roxo1 hover:bg-borda text-roxo2 py-2 px-4 rounded transition duration-200 dark:bg-light_roxo1 dark:hover:bg-light_borda dark:text-light_roxo2">
+              Limpar
+            </button>
+          </div>
         </div>
 
-        <div class="flex items-center space-x-4">
-          <button onclick="calculaIMC()"
-            class="flex-1 bg-roxo1 hover:bg-borda text-roxo2 py-2 px-4 rounded transition duration-200 dark:bg-light_roxo1 dark:hover:bg-light_borda dark:text-light_roxo2">
-            Calcular
-          </button>
+        <!-- resultado -->
+        <div id="resultado-container" class="mt-6 p-4 bg-fundo rounded-lg text-center hidden dark:bg-light_fundo">
+          <p class="text-txt2 mb-1 dark:text-light_txt2">Seu IMC:</p>
+          <p id="resultado" class="text-2xl font-bold text-roxo1 dark:text-light_roxo1"></p>
+          <p id="classificacao" class="text-lg mt-2"></p>
+        </div>
 
-          <button onclick="limparInput()"
-            class="flex-1 bg-roxo1 hover:bg-borda text-roxo2 py-2 px-4 rounded transition duration-200 dark:bg-light_roxo1 dark:hover:bg-light_borda dark:text-light_roxo2">
-            Limpar
-          </button>
+        <!-- msg erro -->
+        <div id="mensagem-erro"
+          class="mt-4 p-3 bg-red-100 text-red-700 rounded-lg hidden dark:bg-red-900 dark:text-red-100">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span id="texto-erro"></span>
         </div>
       </div>
-
-      <!-- resultado -->
-      <div id="resultado-container" class="mt-6 p-4 bg-fundo rounded-lg text-center hidden dark:bg-light_fundo">
-        <p class="text-txt2 mb-1 dark:text-light_txt2">Seu IMC:</p>
-        <p id="resultado" class="text-2xl font-bold text-roxo1 dark:text-light_roxo1"></p>
-        <p id="classificacao" class="text-lg mt-2"></p>
-      </div>
-
-      <!-- msg erro -->
-      <div id="mensagem-erro"
-        class="mt-4 p-3 bg-red-100 text-red-700 rounded-lg hidden dark:bg-red-900 dark:text-red-100">
-        <i class="fas fa-exclamation-circle mr-2"></i>
-        <span id="texto-erro"></span>
-      </div>
-    </div>
-  </main>
-</div>
-
-<script src="./darkMode.js"></script>
+    </main>
+  </div>
+  <script src="calculaIMC.js"></script>
+  <script src="./darkMode.js"></script>
 </body>
+
 </html>

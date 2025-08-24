@@ -40,42 +40,8 @@ function configurarCampoDecimal(idCampo) {
     });
 }
 
-configurarCampoDecimal('valor');
-configurarCampoDecimal('porcentagem');
-
-function limparInput() {
-    var inputPorcentagem = document.getElementById("porcentagem");
-    var inputValor = document.getElementById("valor");
-
-    inputPorcentagem.value = '';
-    inputValor.value = '';
-
-    esconderErro();
-    esconderResultado();
-}
-
-function calculaPorcentagem() {
-    esconderErro();
-    esconderResultado();
-
-    var porcentagem = document.getElementById("porcentagem").value;
-    var valor = document.getElementById("valor").value;
-    var resultado;
-
-    porcentagem = String(porcentagem).replace(",", ".");
-    valor = String(valor).replace(",", ".");
-
-    porcentagem = Number(porcentagem);
-    valor = Number(valor);
-
-    if (isNaN(porcentagem) || isNaN(valor) || porcentagem == '' || valor == '') {
-        mostrarErro();
-        return;
-    }
-
-    resultado = (porcentagem / 100) * valor;
-    mostrarResultado(resultado);
-}
+configurarCampoDecimal('altura');
+configurarCampoDecimal('peso');
 
 function esconderErro() {
     const erroDiv = document.getElementById("mensagem-erro");
@@ -108,3 +74,33 @@ function mostrarResultado(resultado) {
 
 }
 
+function calculaIMC() {
+
+    const pesoInput = document.getElementById('peso');
+    const alturaInput = document.getElementById('altura');
+
+    var peso = pesoInput.value;
+    var altura = alturaInput.value;
+
+    peso = String(peso).replace(",", ".");
+    altura = String(altura).replace(",", ".");
+
+    peso = Number(peso);
+    altura = Number(altura);
+
+    if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+        mostrarErro();
+        return;
+    }
+
+    const imc = peso / (altura * altura);
+
+    mostrarResultado(`${imc.toFixed(2)}`);
+}
+
+function limparInput() {
+    document.getElementById('peso').value = '';
+    document.getElementById('altura').value = '';
+    esconderErro();
+    esconderResultado();
+}
