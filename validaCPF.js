@@ -1,3 +1,36 @@
+const cpfInput = document.getElementById('cpf-input');
+
+cpfInput.addEventListener('input', function (e) {
+    let value = e.target.value;
+
+    value = value.replace(/\D/g, '');
+
+    value = value.slice(0, 11);
+
+    if (value.length > 3 && value.length <= 6) {
+        value = value.replace(/(\d{3})(\d+)/, '$1.$2');
+    } else if (value.length > 6 && value.length <= 9) {
+        value = value.replace(/(\d{3})(\d{3})(\d+)/, '$1.$2.$3');
+    } else if (value.length > 9) {
+        value = value.replace(/(\d{3})(\d{3})(\d{3})(\d+)/, '$1.$2.$3-$4');
+    }
+
+    e.target.value = value;
+});
+
+cpfInput.addEventListener('keypress', function (e) {
+    const char = String.fromCharCode(e.which);
+    
+    if (!/[0-9]/.test(char)) {
+        e.preventDefault();
+    }
+
+    const value = cpfInput.value.replace(/\D/g, '');
+    if (value.length >= 11) {
+        e.preventDefault();
+    }
+});
+
 function validaCPF(cpf) {
     var Soma = 0
     var Resto
@@ -49,7 +82,7 @@ function validaCPF(cpf) {
 }
 
 function mostrarResultado() {
-    var ehValido = validaCPF(document.getElementById("cpf-input").value);   
+    var ehValido = validaCPF(document.getElementById("cpf-input").value);
     const resultadoDiv = document.getElementById('resultado');
     resultadoDiv.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700');
     resultadoDiv.classList.add(ehValido ? 'bg-green-100' : 'bg-red-100', ehValido ? 'text-green-700' : 'text-red-700');
