@@ -1,47 +1,54 @@
-function configurarCampoDecimal(idCampo) {
-    const campo = document.getElementById(idCampo);
+function configurarCampoAltura(idCampo) {
+  const campo = document.getElementById(idCampo);
 
-    campo.addEventListener('input', function (e) {
-        let value = e.target.value;
+  campo.addEventListener("input", function (e) {
+    let value = e.target.value.replace(/\D/g, ""); // só dígitos
 
-        value = value.replace(/\./g, ',');
+    if (value.length > 3) {
+      value = value.substring(0, 3); // limita a 3 dígitos
+    }
 
-        value = value.replace(/[^0-9,]/g, '');
+    if (value.length > 1) {
+      // insere vírgula após o primeiro dígito
+      value = value[0] + "," + value.substring(1);
+    }
 
-        const partes = value.split(',');
-        if (partes.length > 2) {
-            value = partes[0] + ',' + partes.slice(1).join('').replace(/,/g, '');
-        }
-
-        e.target.value = value;
-    });
-
-    campo.addEventListener('keypress', function (e) {
-        const char = String.fromCharCode(e.which);
-
-        if (char === '.' || char === ',') {
-            e.preventDefault();
-
-            const hasComma = campo.value.includes(',');
-            if (!hasComma) {
-                const start = campo.selectionStart;
-                const end = campo.selectionEnd;
-
-                const newValue = campo.value.substring(0, start) + ',' + campo.value.substring(end);
-                campo.value = newValue;
-                campo.setSelectionRange(start + 1, start + 1);
-            }
-            return;
-        }
-
-        if (!/[0-9]/.test(char)) {
-            e.preventDefault();
-        }
-    });
+    e.target.value = value;
+  });
 }
 
-configurarCampoDecimal('altura');
-configurarCampoDecimal('peso');
+function configurarCampoPeso(idCampo) {
+  const campo = document.getElementById(idCampo);
+
+  campo.addEventListener("input", function () {
+    let raw = campo.value;
+
+    if (raw.startsWith("0,")) {
+      raw = raw.slice(2);
+      if (raw.startsWith("0")) {
+        raw = raw.slice(1);
+      }
+    }
+
+    let digits = raw.replace(/\D/g, "");
+
+    if (digits.length > 5) digits = digits.slice(0, 5);
+
+    let formatted = "";
+    if (digits.length === 0) {
+      formatted = "";
+    } else if (digits.length <= 2) {
+      formatted = "0," + digits.padStart(2, "0");
+    } else {
+      formatted = digits.slice(0, -2) + "," + digits.slice(-2);
+    }
+
+    campo.value = formatted;
+  });
+}
+
+configurarCampoAltura('altura');
+configurarCampoPeso('peso');
 
 function esconderErro() {
     const erroDiv = document.getElementById("mensagem-erro");
