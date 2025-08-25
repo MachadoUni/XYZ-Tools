@@ -70,7 +70,6 @@ function esconderResultado() {
     if (!resultadoDiv.classList.contains('hidden')) {
         resultadoDiv.classList.add('hidden');
     }
-
 }
 
 function mostrarResultado(resultado) {
