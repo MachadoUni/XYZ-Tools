@@ -18,6 +18,15 @@ cpfInput.addEventListener('input', function (e) {
     e.target.value = value;
 });
 
+  async function colarCPF() {
+    try {
+      const texto = await navigator.clipboard.readText();
+      document.getElementById("cpf-input").value = texto;
+    } catch (err) {
+      alert("Não foi possível colar do clipboard. Permita o acesso.");
+    }
+  }
+
 cpfInput.addEventListener('keypress', function (e) {
     const char = String.fromCharCode(e.which);
     

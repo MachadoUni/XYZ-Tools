@@ -1,3 +1,4 @@
+// seletorDeCores.js
     document.addEventListener('DOMContentLoaded', function() {
       const svArea = document.getElementById('svArea');
       const svCursor = document.getElementById('svCursor');
@@ -8,17 +9,18 @@
       const rgbInput = document.getElementById('rgb');
       const copyHexBtn = document.getElementById('copyHex');
       const copyRgbBtn = document.getElementById('copyRgb');
+      const tooltipHex = document.getElementById('tooltipHex');
+      const tooltipRgb = document.getElementById('tooltipRgb');
 
       let hue = 0;
       let saturation = 100;
       let value = 100;
       let isDragging = false;
 
-
+      // posição inicial do cursor
       svCursor.style.left = '100%';
       svCursor.style.top = '0%';
       hueCursor.style.left = '0%';
-
 
       function updateColor() {
         const rgb = hsvToRgb(hue, saturation, value);
@@ -28,12 +30,14 @@
         hexInput.value = hex;
         rgbInput.value = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
         
+        // atualiza fundo da área c matriz selecionada
         const hueColor = hsvToRgb(hue, 100, 100);
-        svArea.style.background = `linear-gradient(to right, #fff, rgba(255,255,255,0)), 
-                                  linear-gradient(to top, rgb(${hueColor[0]}, ${hueColor[1]}, ${hueColor[2]}), rgba(0,0,0,0))`;
+        svArea.style.background = `linear-gradient(to top, #000, transparent), 
+                                  linear-gradient(to right, #fff, transparent),
+                                  linear-gradient(to bottom, hsl(${hue}, 100%, 50%), hsl(${hue}, 100%, 50%))`;
       }
 
-      // conversões de cor
+      // conversao das cores
       function hsvToRgb(h, s, v) {
         h = h % 360;
         s = s / 100;
@@ -69,7 +73,7 @@
         }).join('');
       }
 
-      // interação com a área SV
+      // area sv
       function setSvPosition(x, y) {
         const rect = svArea.getBoundingClientRect();
         
@@ -100,6 +104,7 @@
         isDragging = false;
       });
 
+      // slider da matriz
       function setHuePosition(x) {
         const rect = hueSlider.getBoundingClientRect();
         
@@ -116,28 +121,25 @@
         setHuePosition(e.clientX);
       });
 
+      // copiar
       copyHexBtn.addEventListener('click', function() {
         navigator.clipboard.writeText(hexInput.value).then(() => {
-          const originalText = copyHexBtn.innerHTML;
-          copyHexBtn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> Copiado!';
+          tooltipHex.classList.add('show');
           setTimeout(() => {
-            copyHexBtn.innerHTML = originalText;
+            tooltipHex.classList.remove('show');
           }, 2000);
         });
       });
 
       copyRgbBtn.addEventListener('click', function() {
         navigator.clipboard.writeText(rgbInput.value).then(() => {
-          const originalText = copyRgbBtn.innerHTML;
-          copyRgbBtn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> Copiado!';
+          tooltipRgb.classList.add('show');
           setTimeout(() => {
-            copyRgbBtn.innerHTML = originalText;
+            tooltipRgb.classList.remove('show');
           }, 2000);
         });
       });
 
+      // inicialização
       updateColor();
     });
-
-
-    
