@@ -145,6 +145,55 @@
           <p id="classificacao" class="text-lg mt-2"></p>
         </div>
 
+        <!-- tabela de referência -->
+<div class="mt-8">
+  <h3 class="text-lg font-semibold text-borda mb-3 dark:text-light_borda">Tabela de Referência de IMC</h3>
+  <div class="overflow-x-auto">
+    <table class="w-full border border-borda rounded-lg text-sm dark:border-light_borda">
+      <thead class="bg-roxo1 text-roxo2 dark:bg-light_roxo1 dark:text-light_roxo2">
+        <tr>
+          <th class="px-6 py-2 text-center">IMC</th>
+          <th class="px-6 py-2 text-center">Classificação</th>
+          <th class="px-6 py-2 text-center">Risco à Saúde</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-borda dark:divide-light_borda">
+        <tr class="bg-blue-100 dark:bg-blue-200">
+          <td class="px-6 py-2 text-fundo">Menor que 18,5</td>
+          <td class="px-6 py-2 text-fundo font-semibold">Abaixo do peso</td>
+          <td class="px-6 py-2 text-fundo">Maior risco de desnutrição e osteoporose</td>
+        </tr>
+        <tr class="bg-green-100 dark:bg-green-200">
+          <td class="px-6 py-2 text-fundo">18,5 – 24,9</td>
+          <td class="px-6 py-2 text-fundo font-semibold">Peso normal</td>
+          <td class="px-6 py-2 text-fundo">Menor risco, faixa considerada saudável</td>
+        </tr>
+        <tr class="bg-yellow-100 dark:bg-yellow-200">
+          <td class="px-6 py-2 text-fundo">25 – 29,9</td>
+          <td class="px-6 py-2 text-fundo font-semibold">Sobrepeso</td>
+          <td class="px-6 py-2 text-fundo">Aumento do risco de doenças cardiovasculares</td>
+        </tr>
+        <tr class="bg-orange-100 dark:bg-orange-200">
+          <td class="px-6 py-2 text-fundo">30 – 34,9</td>
+          <td class="px-6 py-2 text-fundo font-semibold">Obesidade grau I</td>
+          <td class="px-6 py-2 text-fundo">Risco moderado de hipertensão e diabetes</td>
+        </tr>
+        <tr class="bg-red-100 dark:bg-red-200">
+          <td class="px-6 py-2 text-fundo">35 – 39,9</td>
+          <td class="px-6 py-2 text-fundo font-semibold">Obesidade grau II</td>
+          <td class="px-6 py-2 text-fundo">Alto risco de doenças cardiovasculares</td>
+        </tr>
+        <tr class="bg-red-200 dark:bg-red-300">
+          <td class="px-6 py-2 text-fundo">40 ou mais</td>
+          <td class="px-6 py-2 text-fundo font-semibold">Obesidade grau III</td>
+          <td class="px-6 py-2 text-fundo">Risco muito alto, considerado obesidade mórbida</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
         <!-- msg erro -->
         <div id="mensagem-erro"
           class="mt-4 p-3 bg-red-100 text-red-700 rounded-lg hidden dark:bg-red-900 dark:text-red-100">
