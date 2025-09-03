@@ -59,29 +59,26 @@
 </head>
 <body class="bg-fundo text-txt1 flex flex-col min-h-screen dark:bg-light_fundo dark:text-light_txt1">
 
-<!-- navbar -->
-<nav class="bg-roxo1 px-6 py-4 flex items-center justify-between shadow-lg dark:bg-light_roxo1">
+  <!-- navbar -->
+  <nav class="bg-roxo1 px-6 py-4 flex items-center justify-between shadow-lg dark:bg-light_roxo1">
+    <!-- svg logo -->
+    <a href="index.html" class="flex items-center">
+      <img src="logos/Logo curto.svg" alt="Logo XY Tools" class="h-[4rem] mr-10">
+    </a>
+
+    <!-- botao darkmode -->
+    <label class="cursor-pointer">
+      <input type="checkbox" id="theme-toggle" class="sr-only peer">
+      <div class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-borda dark:hover:bg-roxo2 transition-colors duration-200">
+        <i class="fa-solid fa-circle-half-stroke text-lg bg-clip-text text-transparent 
+          bg-roxo2 min-w-[19px] dark:bg-borda transition-all duration-300 peer-checked/rotate-180"></i>
+      </div>
+    </label>
+  </nav>
   
-  <!-- svg logo -->
-  <a href="index.html" class="flex items-center">
-    <img src="logos/Logo curto.svg" alt="Logo XY Tools" class="h-[4rem] mr-10">
-  </a>
-
-  <!-- botao darkmode -->
-  <label class="cursor-pointer">
-    <input type="checkbox" id="theme-toggle" class="sr-only peer">
-    <div class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-borda dark:hover:bg-roxo2 transition-colors duration-200">
-      <i class="fa-solid fa-circle-half-stroke text-lg bg-clip-text text-transparent 
-        bg-roxo2 min-w-[19px] dark:bg-borda transition-all duration-300 peer-checked/rotate-180"></i>
-    </div>
-  </label>
-
-</nav>
-
-
-  <!-- sidebar -->
   <div class="flex flex-1">
-     <aside class="bg-borda min-w-fit p-6 space-y-4 dark:bg-light_borda">
+    <!-- sidebar -->
+    <aside class="bg-borda min-w-fit p-6 space-y-4 dark:bg-light_borda">
       <h2 class="text-xl font-bold text-roxo2 mb-4 dark:text-txt1">Ferramentas</h2>
       <ul class="space-y-3">
         <li><a href="Calc Horas.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1 dark:text-light_roxo2 dark:hover:text-light_roxo1"><i class="fa-solid fa-calculator"></i><span>Calculadora de Horas</span></a></li>
@@ -96,16 +93,16 @@
         <li><a href="Sorteador Numero.html" class="flex items-center space-x-2 text-roxo2 hover:text-roxo1"><i class="fa-solid fa-shuffle"></i><span>Sorteador de Números</span></a></li>
       </ul>
     </aside>
-    
-    <!-- conteúdo -->
-    <div class="p-6">
-      <h1 class="text-xl font-bold text-roxo2 dark:text-light_borda mb-4">Ferramentas mais utilizadas</h1> 
-  
-    <div class="flex flex-wrap gap-4">
-      <a href="Calc Porcentagem.html" class="relative p-4 max-w-[360px] min-w-[360px] min-h-[210px] group">
-        <div class="absolute inset-0 rounded-xl bg-roxo1/20 dark:bg-light_roxo1/20 blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
 
-          <div class="w-full h-full bg-fundo/90 dark:bg-light_fundo/90 border border-light_borda group-hover:border-roxo1/30 dark:group-hover:border-light_roxo1/30 rounded-xl p-4 max-w-[320px] flex flex-col items-center justify-center transition-all duration-300">
+    <!-- conteúdo -->
+    <div class="p-6 flex-1">
+      <h1 class="text-xl font-bold text-roxo2 dark:text-light_borda mb-6">Ferramentas mais utilizadas</h1> 
+
+      <div class="grid grid-cols-3 gap-6">
+        <a href="Calc Porcentagem.html" class="relative group">
+          <div class="absolute inset-0 rounded-xl bg-roxo1/20 dark:bg-light_roxo1/20 blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
+
+          <div class="w-full h-[250px] bg-fundo/90 dark:bg-light_fundo/90 border border-light_borda group-hover:border-roxo1/30 dark:group-hover:border-light_roxo1/30 rounded-xl p-4 flex flex-col items-center justify-center transition-all duration-300">
             <div class="flex items-center space-x-3 mb-2">
               <i class="fa-solid fa-calculator text-roxo2 text-2xl dark:text-light_borda"></i>
               <span class="text-roxo2 font-semibold dark:text-light_borda text-center">Calculadora de Porcentagem</span>
@@ -114,12 +111,12 @@
               Calcule porcentagens de forma rápida e precisa para descontos, acréscimos e proporções.
             </p>
           </div>
-      </a>
+        </a>
 
-      <a href="Seletor de Cores.html" class="relative p-4 max-w-[360px] min-w-[360px] min-h-[210px] group">
-        <div class="absolute inset-0 rounded-xl bg-roxo1/20 dark:bg-light_roxo1/20 blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
-        
-          <div class="w-full h-full bg-fundo/90 dark:bg-light_fundo/90 border border-light_borda group-hover:border-roxo1/30 dark:group-hover:border-light_roxo1/30 rounded-xl p-4 max-w-[320px] flex flex-col items-center justify-center transition-all duration-300">
+        <a href="Seletor de Cores.html" class="relative group">
+          <div class="absolute inset-0 rounded-xl bg-roxo1/20 dark:bg-light_roxo1/20 blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
+
+          <div class="w-full h-[250px] bg-fundo/90 dark:bg-light_fundo/90 border border-light_borda group-hover:border-roxo1/30 dark:group-hover:border-light_roxo1/30 rounded-xl p-4 flex flex-col items-center justify-center transition-all duration-300">
             <div class="flex items-center space-x-3 mb-2">
               <i class="fa-solid fa-palette text-roxo2 text-2xl dark:text-light_borda"></i>
               <span class="text-roxo2 font-semibold dark:text-light_borda text-center">Seletor de Cores</span>
@@ -128,12 +125,12 @@
               Explore, selecione e copie códigos de cores em diferentes formatos para seus projetos.
             </p>
           </div>
-      </a>
+        </a>
 
-      <a href="Validar CPF.html" class="relative p-4 max-w-[360px] min-w-[360px] min-h-[210px] group">
-        <div class="absolute inset-0 rounded-xl bg-roxo1/20 dark:bg-light_roxo1/20 blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
-        
-          <div class="w-full h-full bg-fundo/90 dark:bg-light_fundo/90 border border-light_borda group-hover:border-roxo1/30 dark:group-hover:border-light_roxo1/30 rounded-xl p-4 max-w-[320px] flex flex-col items-center justify-center transition-all duration-300">
+        <a href="Validar CPF.html" class="relative group">
+          <div class="absolute inset-0 rounded-xl bg-roxo1/20 dark:bg-light_roxo1/20 blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
+
+          <div class="w-full h-[250px] bg-fundo/90 dark:bg-light_fundo/90 border border-light_borda group-hover:border-roxo1/30 dark:group-hover:border-light_roxo1/30 rounded-xl p-4 flex flex-col items-center justify-center transition-all duration-300">
             <div class="flex items-center space-x-3 mb-2">
               <i class="fa-solid fa-barcode text-roxo2 text-2xl dark:text-light_borda"></i>
               <span class="text-roxo2 font-semibold dark:text-light_borda text-center">Validador de CPF</span>
@@ -142,12 +139,12 @@
               Verifique se um CPF é válido de acordo com as regras oficiais da Receita Federal.
             </p>
           </div>
-      </a>
+        </a>
 
-      <a href="Conversor Binario.html" class="relative p-4 max-w-[360px] min-w-[360px] min-h-[210px] group">
-        <div class="absolute inset-0 rounded-xl bg-roxo1/20 dark:bg-light_roxo1/20 blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
-        
-          <div class="w-full h-full bg-fundo/90 dark:bg-light_fundo/90 border border-light_borda group-hover:border-roxo1/30 dark:group-hover:border-light_roxo1/30 rounded-xl p-4 max-w-[320px] flex flex-col items-center justify-center transition-all duration-300">
+        <a href="Conversor Binario.html" class="relative group">
+          <div class="absolute inset-0 rounded-xl bg-roxo1/20 dark:bg-light_roxo1/20 blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
+
+          <div class="w-full h-[250px] bg-fundo/90 dark:bg-light_fundo/90 border border-light_borda group-hover:border-roxo1/30 dark:group-hover:border-light_roxo1/30 rounded-xl p-4 flex flex-col items-center justify-center transition-all duration-300">
             <div class="flex items-center space-x-3 mb-2">
               <i class="fa-solid fa-code text-roxo2 text-2xl dark:text-light_borda"></i>
               <span class="text-roxo2 font-semibold dark:text-light_borda text-center">Tradutor Binário</span>
@@ -156,12 +153,12 @@
               Converta texto para código binário e vice-versa, ideal para estudantes e desenvolvedores.
             </p>
           </div>
-      </a>
+        </a>
 
-      <a href="Conversor Morse.html" class="relative p-4 max-w-[360px] min-w-[360px] min-h-[210px] group">
-        <div class="absolute inset-0 rounded-xl bg-roxo1/20 dark:bg-light_roxo1/20 blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
-        
-          <div class="w-full h-full bg-fundo/90 dark:bg-light_fundo/90 border border-light_borda group-hover:border-roxo1/30 dark:group-hover:border-light_roxo1/30 rounded-xl p-4 max-w-[320px] flex flex-col items-center justify-center transition-all duration-300">
+        <a href="Conversor Morse.html" class="relative group">
+          <div class="absolute inset-0 rounded-xl bg-roxo1/20 dark:bg-light_roxo1/20 blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
+
+          <div class="w-full h-[250px] bg-fundo/90 dark:bg-light_fundo/90 border border-light_borda group-hover:border-roxo1/30 dark:group-hover:border-light_roxo1/30 rounded-xl p-4 flex flex-col items-center justify-center transition-all duration-300">
             <div class="flex items-center space-x-3 mb-2">
               <i class="fa-solid fa-code text-roxo2 text-2xl dark:text-light_borda"></i>
               <span class="text-roxo2 font-semibold dark:text-light_borda text-center">Tradutor Morse</span>
@@ -170,12 +167,12 @@
               Converta texto para código Morse ou código Morse para texto facilmente.
             </p>
           </div>
-      </a>
+        </a>
 
-      <a href="Gerador CPF.html" class="relative p-4 max-w-[360px] min-w-[360px] min-h-[210px] group">
-        <div class="absolute inset-0 rounded-xl bg-roxo1/20 dark:bg-light_roxo1/20 blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
-          
-          <div class="w-full h-full bg-fundo/90 dark:bg-light_fundo/90 border border-light_borda group-hover:border-roxo1/30 dark:group-hover:border-light_roxo1/30 rounded-xl p-4 max-w-[320px] flex flex-col items-center justify-center transition-all duration-300">
+        <a href="Gerador CPF.html" class="relative group">
+          <div class="absolute inset-0 rounded-xl bg-roxo1/20 dark:bg-light_roxo1/20 blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
+
+          <div class="w-full h-[250px] bg-fundo/90 dark:bg-light_fundo/90 border border-light_borda group-hover:border-roxo1/30 dark:group-hover:border-light_roxo1/30 rounded-xl p-4 flex flex-col items-center justify-center transition-all duration-300">
             <div class="flex items-center space-x-3 mb-2">
               <i class="fa-solid fa-barcode text-roxo2 text-2xl dark:text-light_borda"></i>
               <span class="text-roxo2 font-semibold dark:text-light_borda text-center">Gerador de CPF</span>
@@ -184,10 +181,11 @@
               Gere CPFs válidos para testes de sistemas, seguindo as regras oficiais.
             </p>
           </div>
-      </a>
+        </a>
+      </div>
+    </div>
   </div>
-</div>
-  </div>
+
   <script src="./darkMode.js"></script>
 </body>
 </html>
