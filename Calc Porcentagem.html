@@ -47,6 +47,18 @@
     * {
       font-family: 'Lexend', sans-serif;
     }
+    
+    .cursor-solid {
+    position: fixed;
+    width: 10px;        
+    height: 10px;
+    background-color: #7b00ff;
+    border-radius: 50%;
+    pointer-events: none;  
+    box-shadow: 0 0 6px #7b00ff, 0 0 12px #7b00ff; 
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    }
   </style>
 
 </head>
@@ -72,7 +84,6 @@
 
 </nav>
 
-
   <!-- sidebar -->
   <div class="flex flex-1">
      <aside class="bg-borda min-w-fit p-6 space-y-4 dark:bg-light_borda">
@@ -93,8 +104,8 @@
 
 
     <!-- conteúdo principal -->
-    <main class="flex-1 p-6">
-      <h1 class="text-2xl font-bold text-roxo2 mb-6 dark:text-light_borda">Calculadora de Porcentagem</h1>
+    <div class="p-6 flex-1">
+      <h1 class="text-xl font-bold text-roxo2 dark:text-light_borda mb-6">Calculadora de Porcentagem</h1>
 
       <div class="max-w-md mx-auto bg-roxo2 p-6 rounded-lg shadow-md dark:bg-light_roxo2">
         <div class="text-center mb-6">
@@ -141,7 +152,6 @@
         </div>
       </div>
   </div>
-  </main>
   </div>
   <script src="calculaPorcentagem.js"></script>
   <script src="./darkMode.js"></script>

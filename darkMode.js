@@ -16,3 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('theme', themeToggle.checked ? 'dark' : 'light');
   });
 });
+
+// efeito no cursor
+  const solidCursor = document.createElement('div');
+  solidCursor.classList.add('cursor-solid');
+  document.body.appendChild(solidCursor);
+
+document.addEventListener('mousemove', e => {
+  solidCursor.style.left = e.clientX + 'px';
+  solidCursor.style.top = e.clientY + 'px';
+});

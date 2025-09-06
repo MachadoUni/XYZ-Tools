@@ -32,15 +32,18 @@ function atualizarResultado() {
     document.getElementById("total-acumulado").value = formatarTempo(totalMinutes);
 }
 
-function adicionarHistorico(sinal, minutos) {
+function adicionarHistorico(sinal, minutos, acumuladoAntes) {
     let operacoesDiv = document.getElementById("operacoes-lancadas");
 
     if (operacoesDiv.innerText == "Nenhuma operação realizada") operacoesDiv.innerText = '';
 
     let operacao = document.createElement("div");
-    operacao.textContent = `${sinal}${formatarTempo(minutos)}`;
+    let acumuladoDepois = totalMinutes;
+
+    operacao.textContent = `${formatarTempo(acumuladoAntes)} ${sinal} ${formatarTempo(minutos)} = ${formatarTempo(acumuladoDepois)}`;
     operacoesDiv.prepend(operacao); // adiciona no topo
 }
+
 
 document.getElementById("entrada-horas").addEventListener("input", (e) => {
     let v = e.target.value.replace(/\D/g, "");
@@ -55,9 +58,12 @@ document.getElementById("btn-adicionar").addEventListener("click", () => {
     let entrada = document.getElementById("entrada-horas").value;
     if (entrada) {
         let minutos = entradaParaMinutos(entrada);
+        let acumuladoAntes = totalMinutes;
         totalMinutes += minutos;
         atualizarResultado();
-        adicionarHistorico("+", minutos);
+        adicionarHistorico("+", minutos, acumuladoAntes);
+
+        document.getElementById("entrada-horas").value = "";
     }
 });
 
@@ -65,10 +71,14 @@ document.getElementById("btn-subtrair").addEventListener("click", () => {
     let entrada = document.getElementById("entrada-horas").value;
     if (entrada) {
         let minutos = entradaParaMinutos(entrada);
+        let acumuladoAntes = totalMinutes;
         totalMinutes -= minutos;
         atualizarResultado();
-        adicionarHistorico("-", minutos);
+        adicionarHistorico("-", minutos, acumuladoAntes);
+
+        document.getElementById("entrada-horas").value = "";
     }
 });
+
 
 atualizarResultado();
