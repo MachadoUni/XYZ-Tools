@@ -41,7 +41,7 @@ function adicionarHistorico(sinal, minutos, acumuladoAntes) {
     let acumuladoDepois = totalMinutes;
 
     operacao.textContent = `${formatarTempo(acumuladoAntes)} ${sinal} ${formatarTempo(minutos)} = ${formatarTempo(acumuladoDepois)}`;
-    operacoesDiv.prepend(operacao); // adiciona no topo
+    operacoesDiv.append(operacao); 
 }
 
 
@@ -54,31 +54,28 @@ document.getElementById("entrada-horas").addEventListener("input", (e) => {
     }
 });
 
-document.getElementById("btn-adicionar").addEventListener("click", () => {
-    let entrada = document.getElementById("entrada-horas").value;
-    if (entrada) {
-        let minutos = entradaParaMinutos(entrada);
-        let acumuladoAntes = totalMinutes;
-        totalMinutes += minutos;
-        atualizarResultado();
-        adicionarHistorico("+", minutos, acumuladoAntes);
+document.addEventListener("keydown", (event) => {
+  const entrada = document.getElementById("entrada-horas").value;
 
-        document.getElementById("entrada-horas").value = "";
-    }
+  if (event.key === "+" && entrada) {
+    let minutos = entradaParaMinutos(entrada);
+    let acumuladoAntes = totalMinutes;
+    totalMinutes += minutos;
+    atualizarResultado();
+    adicionarHistorico("+", minutos, acumuladoAntes);
+    document.getElementById("entrada-horas").value = "";
+  }
+
+  if (event.key === "-" && entrada) {
+    let minutos = entradaParaMinutos(entrada);
+    let acumuladoAntes = totalMinutes;
+    totalMinutes -= minutos;
+    atualizarResultado();
+    adicionarHistorico("-", minutos, acumuladoAntes);
+    document.getElementById("entrada-horas").value = "";
+  }
 });
 
-document.getElementById("btn-subtrair").addEventListener("click", () => {
-    let entrada = document.getElementById("entrada-horas").value;
-    if (entrada) {
-        let minutos = entradaParaMinutos(entrada);
-        let acumuladoAntes = totalMinutes;
-        totalMinutes -= minutos;
-        atualizarResultado();
-        adicionarHistorico("-", minutos, acumuladoAntes);
-
-        document.getElementById("entrada-horas").value = "";
-    }
-});
 
 
 atualizarResultado();

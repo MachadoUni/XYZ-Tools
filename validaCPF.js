@@ -103,3 +103,10 @@ function mostrarResultado() {
     resultadoDiv.innerHTML = `<p class="font-semibold">${mensagem}</p>`;
     resultadoDiv.classList.remove('hidden');
 }
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); 
+        mostrarResultado(); 
+    }
+});
