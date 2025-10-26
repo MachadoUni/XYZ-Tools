@@ -6,7 +6,7 @@ function initDarkMode() {
     if (!themeToggle) return; // Sai se o elemento não existir
 
     // --- LÓGICA DE DEFINIÇÃO DO TEMA ---
-    //const currentTheme = localStorage.getItem('theme');
+    const currentTheme = localStorage.getItem('theme');
     
     // 1. Determina se o modo escuro deve estar ativo
     // Padrão é dark, a menos que o local storage diga 'light',
