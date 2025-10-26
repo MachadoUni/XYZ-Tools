@@ -6,7 +6,7 @@ function initDarkMode() {
     if (!themeToggle) return; // Sai se o elemento não existir
 
     // --- LÓGICA DE DEFINIÇÃO DO TEMA ---
-    const currentTheme = localStorage.getItem('theme');
+    //const currentTheme = localStorage.getItem('theme');
     
     // 1. Determina se o modo escuro deve estar ativo
     // Padrão é dark, a menos que o local storage diga 'light',
@@ -39,7 +39,7 @@ function initDarkMode() {
 
 // --------------------------------------------------------------------------
 // Efeito no Cursor: Coloquei a lógica de inicialização em uma função
-function initCursor() {
+/*function initCursor() {
     const solidCursor = document.createElement('div');
     solidCursor.classList.add('cursor-solid');
     document.body.appendChild(solidCursor);
@@ -48,13 +48,13 @@ function initCursor() {
         solidCursor.style.left = e.clientX + 'px';
         solidCursor.style.top = e.clientY + 'px';
     });
-}
+}*/
 // --------------------------------------------------------------------------
 
 
 // Disponibiliza as funções globalmente para o loadComponents.js
 window.initDarkMode = initDarkMode;
-window.initCursor = initCursor; 
+//window.initCursor = initCursor; 
 
 // REMOVA O VELHO DOMContentLoaded AQUI! Ele será chamado no loadComponents.js
 // Se o seu darkMode.js SÓ tiver isso, mantenha apenas a parte de initCursor no DOMContentLoaded

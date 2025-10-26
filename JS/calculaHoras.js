@@ -41,7 +41,7 @@ function adicionarHistorico(sinal, minutos, acumuladoAntes) {
     let acumuladoDepois = totalMinutes;
 
     operacao.textContent = `${formatarTempo(acumuladoAntes)} ${sinal} ${formatarTempo(minutos)} = ${formatarTempo(acumuladoDepois)}`;
-    operacoesDiv.append(operacao); 
+    operacoesDiv.append(operacao);
 }
 
 
@@ -54,28 +54,46 @@ document.getElementById("entrada-horas").addEventListener("input", (e) => {
     }
 });
 
-document.addEventListener("keydown", (event) => {
-  const entrada = document.getElementById("entrada-horas").value;
-
-  if (event.key === "+" && entrada) {
+function addTempo() {
+    const entrada = document.getElementById("entrada-horas").value;
     let minutos = entradaParaMinutos(entrada);
     let acumuladoAntes = totalMinutes;
     totalMinutes += minutos;
     atualizarResultado();
     adicionarHistorico("+", minutos, acumuladoAntes);
     document.getElementById("entrada-horas").value = "";
-  }
-
-  if (event.key === "-" && entrada) {
+    console.log("a");
+}
+function subTempo() {
+    const entrada = document.getElementById("entrada-horas").value;
     let minutos = entradaParaMinutos(entrada);
     let acumuladoAntes = totalMinutes;
     totalMinutes -= minutos;
     atualizarResultado();
     adicionarHistorico("-", minutos, acumuladoAntes);
     document.getElementById("entrada-horas").value = "";
-  }
+}
+
+document.addEventListener("keydown", (event) => {
+    const entrada = document.getElementById("entrada-horas").value;
+
+    if (event.key === "+" && entrada) {
+        let minutos = entradaParaMinutos(entrada);
+        let acumuladoAntes = totalMinutes;
+        totalMinutes += minutos;
+        atualizarResultado();
+        adicionarHistorico("+", minutos, acumuladoAntes);
+        document.getElementById("entrada-horas").value = "";
+    }
+
+    if (event.key === "-" && entrada) {
+        let minutos = entradaParaMinutos(entrada);
+        let acumuladoAntes = totalMinutes;
+        totalMinutes -= minutos;
+        atualizarResultado();
+        adicionarHistorico("-", minutos, acumuladoAntes);
+        document.getElementById("entrada-horas").value = "";
+    }
 });
-
-
 
 atualizarResultado();
