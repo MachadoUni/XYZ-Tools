@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorteador de Números | XY Tools</title>
+  <link rel="icon" type="logo" href="../logos/Logo curto.svg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script src="../JS/loadComponents.js" defer></script>
+  <script src="../JS/sorteadorNumero.js"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Lexend', 'sans-serif'],
+          },
+          colors: {
+            fundo: '#121018',
+            roxo1: '#7b00ff',
+            roxo2: '#efebf7',
+            borda: '#2d1b4f',
+            txt1: '#e4e4e4',
+            txt2: '#a6a6a6',
+
+            light_fundo: '#f5f5f7',
+            light_roxo1: '#7b00ff',
+            light_roxo2: '#efebf7',
+            light_borda: '#2d1b4f',
+            light_txt1: '#333333',
+            light_txt2: '#666666',
+          },
+        },
+      },
+    };
+  </script>
+
+<style>
+    * {
+        font-family: 'Lexend', sans-serif;
+    }
+
+    .cursor-solid {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background-color: #7b00ff;
+        border-radius: 50%;
+        pointer-events: none;
+        box-shadow: 0 0 6px #7b00ff, 0 0 12px #7b00ff;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+    }
+
+    .sidebar-transition {
+        transition: transform 0.3s ease-in-out;
+    }
+</style>
+</head>
+
+<body class="bg-fundo text-txt1 flex flex-col min-h-screen dark:bg-light_fundo dark:text-light_txt1">
+
+    <div id="navbar-container"></div>
+    <div id="overlay"></div> 
+
+    <div class="flex flex-1 overflow-hidden">
+    
+        <div id="sidebar-container"></div>
+
+        <main class="flex-1 overflow-y-auto p-6">
+            <h1 class="text-2xl font-bold text-roxo2 mb-6 text-center sm:text-left dark:text-light_borda">Sorteador de Números</h1>
+
+            <div class="max-w-md mx-auto bg-roxo2 p-6 rounded-lg shadow-md dark:bg-light_roxo2">
+                <div class="mb-4">
+                    <label for="cpf-input" class="block text-borda mb-2 dark:text-light_borda">Sortear um número aleatório</label>
+
+        <div class="space-y-4">
+          <div>
+            <label for="min" class="block text-borda mb-1 dark:text-light_borda">Valor mínimo</label>
+            <input id="min" type="number" placeholder="Ex: 1" 
+              class="w-full px-4 py-2 bg-fundo border border-borda rounded focus:outline-none focus:ring-2 focus:ring-roxo1 dark:bg-light_fundo dark:border-light_borda">
+          </div>
+
+          <div>
+            <label for="max" class="block text-borda mb-1 dark:text-light_borda">Valor máximo</label>
+            <input id="max" type="number" placeholder="Ex: 100" 
+              class="w-full px-4 py-2 bg-fundo border border-borda rounded focus:outline-none focus:ring-2 focus:ring-roxo1 dark:bg-light_fundo dark:border-light_borda">
+          </div>
+
+                    <div class="flex space-x-4 pt-2"> 
+                            <button onclick="sortearNumero()"
+              class="flex-1 bg-roxo1 hover:bg-borda text-roxo2 py-2 px-4 rounded transition duration-200 dark:bg-light_roxo1 dark:hover:bg-light_borda dark:text-light_roxo2 font-semibold">
+              Sortear
+            </button>
+
+            <button onclick="limparInput()"
+              class="flex-1 bg-roxo1 hover:bg-borda text-roxo2 py-2 px-4 rounded transition duration-200 dark:bg-light_roxo1 dark:hover:bg-light_borda dark:text-light_roxo2 font-semibold">
+              Limpar
+            </button>
+          </div>
+        </div>
+
+        <div id="resultado-container" class="mt-6 p-4 bg-fundo rounded-lg text-center hidden dark:bg-light_fundo">
+          <p class="text-txt2 mb-1 dark:text-light_txt2">Número sorteado:</p>
+          <p id="resultado" class="text-3xl font-bold text-roxo1 dark:text-light_roxo1"></p>
+        </div>
+
+        <div id="mensagem-erro"
+          class="mt-4 p-3 bg-red-100 text-red-700 rounded-lg hidden dark:bg-red-900 dark:text-red-100">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span id="texto-erro"></span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+    <script src="../JS/darkMode.js"></script>
+  </body>
+
+</html>
