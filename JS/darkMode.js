@@ -52,7 +52,6 @@ function initDarkMode() {
 // --------------------------------------------------------------------------
 
 
-// Disponibiliza as funções globalmente para o loadComponents.js
 window.initDarkMode = initDarkMode;
 //window.initCursor = initCursor; 
 
