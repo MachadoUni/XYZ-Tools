@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de Dias Úteis | XY Tools</title>
+  <link rel="icon" type="logo" href="../logos/Logo curto.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">   
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { 'sans': ['Lexend', 'sans-serif'] },
+          colors: {
+            fundo: '#121018', roxo1: '#7b00ff', roxo2: '#efebf7', borda: '#2d1b4f',
+            txt1: '#e4e4e4', txt2: '#a6a6a6', light_fundo: '#f5f5f7',
+            light_roxo1: '#7b00ff', light_roxo2: '#efebf7', light_borda: '#2d1b4f',
+            light_txt1: '#333333', light_txt2: '#666666',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    * { font-family: 'Lexend', sans-serif; }
+    input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.8); }
+    .dark input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.2); }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    .pulse-animation { animation: pulse 0.5s ease-in-out; }
+  </style>
+</head>
+
+<body class="bg-fundo text-txt1 flex flex-col min-h-screen dark:bg-light_fundo dark:text-light_txt1 overflow-x-hidden">
+
+<div id="navbar-container"></div>
+<div id="overlay"></div> 
+
+<div class="flex flex-1 relative overflow-hidden">
+    <div id="sidebar-container"></div>
+
+    <main class="flex-1 overflow-y-auto p-6 sm:ml-64">
+      <h1 class="text-2xl font-bold text-roxo2 mb-6 dark:text-light_borda">Calculadora de Dias Úteis</h1>
+
+      <div class="max-w-md mx-auto bg-roxo2 p-6 rounded-lg shadow-md dark:bg-light_roxo2">
+        
+        <div class="mb-6">
+          <label class="block text-borda mb-2 dark:text-light_borda text-center font-semibold text-xs uppercase tracking-wider">Dias Úteis Calculados:</label>
+          <div id="resultado-dias" class="w-full px-4 py-6 bg-fundo border border-borda rounded dark:bg-light_fundo dark:border-light_borda text-center text-5xl font-bold text-roxo1">
+            0
+          </div>
+          <p id="legenda-detalhada" class="text-center text-[11px] text-borda mt-3 dark:text-light_txt2 italic font-medium">Configure o período abaixo</p>
+        </div>
+
+        <div id="raio-x" class="hidden mb-6 grid grid-cols-2 gap-2">
+            <div class="bg-fundo/10 p-2 rounded border border-borda/10 text-center">
+                <span class="block text-[9px] uppercase text-txt2 dark:text-light_txt2">Dias de Semana</span>
+                <span id="total-seg-sex" class="text-sm font-bold text-borda dark:text-light_borda">0 dias</span>
+            </div>
+            <div class="bg-fundo/10 p-2 rounded border border-borda/10 text-center">
+                <span class="block text-[9px] uppercase text-txt2 dark:text-light_txt2">Finais de Semana</span>
+                <span id="total-sab-dom" class="text-sm font-bold text-borda dark:text-light_borda">0 dias</span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-borda mb-1 text-xs font-bold dark:text-light_borda">Início:</label>
+            <input type="date" id="data-inicio" class="w-full px-3 py-2 bg-fundo border border-borda rounded focus:outline-none focus:ring-2 focus:ring-roxo1 dark:bg-light_fundo dark:border-light_borda text-sm">
+          </div>
+          <div>
+            <label class="block text-borda mb-1 text-xs font-bold dark:text-light_borda">Fim:</label>
+            <input type="date" id="data-fim" class="w-full px-3 py-2 bg-fundo border border-borda rounded focus:outline-none focus:ring-2 focus:ring-roxo1 dark:bg-light_fundo dark:border-light_borda text-sm">
+          </div>
+        </div>
+
+        <div class="mb-6 bg-fundo/5 p-4 rounded-lg border border-borda/10">
+          <label class="block text-borda mb-2 text-sm font-bold dark:text-light_borda flex justify-between items-center">
+            <span>Abonar dias extras:</span>
+            <span id="label-abono" class="bg-roxo1 text-white px-2 py-0.5 rounded text-xs font-bold">0 dias</span>
+          </label>
+          <input type="range" id="input-abono" value="0" min="0" max="15" oninput="document.getElementById('label-abono').innerText = this.value + ' dias'"
+            class="w-full h-2 bg-fundo rounded-lg appearance-none cursor-pointer accent-roxo1 dark:bg-light_fundo border border-borda">
+        </div>
+
+        <button id="btn-calcular" onclick="processarCalculo()"
+          class="w-full bg-roxo1 hover:bg-borda text-roxo2 py-3 px-4 rounded transition duration-200 dark:bg-light_roxo1 dark:hover:bg-light_borda dark:text-light_roxo2 flex items-center justify-center font-bold shadow-md">
+          <span id="btn-text"><i class="fa-solid fa-calculator mr-2"></i> Calcular Dias Úteis</span>
+        </button>
+
+        <div id="detalhe-dias" class="mt-6 hidden bg-fundo/5 p-4 rounded-lg border border-borda/5 text-[11px]">
+            <h3 class="font-bold text-borda dark:text-light_borda mb-2 uppercase text-[9px] tracking-widest">Frequência de Dias:</h3>
+            <div id="lista-dias-semana" class="grid grid-cols-2 gap-x-4 gap-y-1 text-txt2 dark:text-light_txt2"></div>
+        </div>
+
+        <div id="container-feriados" class="mt-4 hidden border-t border-borda/10 pt-4">
+          <h3 class="text-[10px] font-bold text-borda mb-2 dark:text-light_borda uppercase flex items-center tracking-wider">
+            <i class="fa-solid fa-umbrella-beach mr-2 text-roxo1"></i> Feriados Nacionais:
+          </h3>
+          <ul id="lista-feriados" class="text-[10px] space-y-1 text-txt2 dark:text-light_txt2 italic"></ul>
+        </div>
+        
+        <button onclick="limparTudo()" class="w-full mt-4 text-borda hover:underline text-[10px] dark:text-light_borda opacity-50">Resetar Calculadora</button>
+
+      </div>
+    </main>
+</div>
+
+<script src="../JS/loadComponents.js" defer></script>
+<script src="../JS/darkMode.js" defer></script>
+<script src="../JS/CalcDiasUteis.js" defer></script>
+
+</body>
+</html>
