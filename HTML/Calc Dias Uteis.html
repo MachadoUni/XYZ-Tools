@@ -35,6 +35,27 @@
     .dark input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.2); }
     @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
     .pulse-animation { animation: pulse 0.5s ease-in-out; }
+    
+    #sidebar-container { min-width: 0; }
+    @media (min-width: 640px) {
+      #sidebar-container { min-width: 256px; }
+    
+    }
+        .cursor-solid {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background-color: #7b00ff;
+        border-radius: 50%;
+        pointer-events: none;
+        box-shadow: 0 0 6px #7b00ff, 0 0 12px #7b00ff;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+    }
+
+    .sidebar-transition {
+        transition: transform 0.3s ease-in-out;
+    }
   </style>
 </head>
 
@@ -44,10 +65,13 @@
 <div id="overlay"></div> 
 
 <div class="flex flex-1 relative overflow-hidden">
-    <div id="sidebar-container"></div>
+    <div id="sidebar-container" class="flex-shrink-0"></div>
 
-    <main class="flex-1 overflow-y-auto p-6 sm:ml-64">
-      <h1 class="text-2xl font-bold text-roxo2 mb-6 dark:text-light_borda">Calculadora de Dias Úteis</h1>
+    <main class="flex-1 min-w-0 overflow-y-auto p-6 sm:ml-0 transition-all duration-300">
+      
+      <div class="max-w-4xl mx-auto sm:mx-0">
+        <h1 class="text-2xl font-bold text-roxo2 mb-6 dark:text-light_borda">Calculadora de Dias Úteis</h1>
+      </div>
 
       <div class="max-w-md mx-auto bg-roxo2 p-6 rounded-lg shadow-md dark:bg-light_roxo2">
         
@@ -56,7 +80,7 @@
           <div id="resultado-dias" class="w-full px-4 py-6 bg-fundo border border-borda rounded dark:bg-light_fundo dark:border-light_borda text-center text-5xl font-bold text-roxo1">
             0
           </div>
-          <p id="legenda-detalhada" class="text-center text-[11px] text-borda mt-3 dark:text-light_txt2 italic font-medium">Configure o período abaixo</p>
+          <p id="legenda-detalhada" class="text-center text-[11px] text-borda mt-3 dark:text-light_txt2 italic">Configure o período abaixo</p>
         </div>
 
         <div id="raio-x" class="hidden mb-6 grid grid-cols-2 gap-2">
